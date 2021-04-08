@@ -1,0 +1,8 @@
+C:\Users\Fujitsu\source\repos\CompositionWebApp\CompositionWebApp\obj\Debug\net5.0\CompositionWebApp.csprojAssemblyReference.cache
+C:\Users\Fujitsu\source\repos\CompositionWebApp\CompositionWebApp\obj\Debug\net5.0\CompositionWebApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fujitsu\source\repos\CompositionWebApp\CompositionWebApp\obj\Debug\net5.0\CompositionWebApp.AssemblyInfoInputs.cache
+C:\Users\Fujitsu\source\repos\CompositionWebApp\CompositionWebApp\obj\Debug\net5.0\CompositionWebApp.AssemblyInfo.cs
+C:\Users\Fujitsu\source\repos\CompositionWebApp\CompositionWebApp\obj\Debug\net5.0\CompositionWebApp.csproj.CoreCompileInputs.cache
+C:\Users\Fujitsu\source\repos\CompositionWebApp\CompositionWebApp\obj\Debug\net5.0\CompositionWebApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Fujitsu\source\repos\CompositionWebApp\CompositionWebApp\obj\Debug\net5.0\CompositionWebApp.TagHelpers.input.cache
+C:\Users\Fujitsu\source\repos\CompositionWebApp\CompositionWebApp\obj\Debug\net5.0\CompositionWebApp.TagHelpers.output.cache
