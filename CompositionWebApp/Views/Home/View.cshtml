@@ -1,0 +1,28 @@
+﻿@model MainModel
+@{
+	ViewData["Title"] = "Copmosition";
+}
+
+<div class="row mt-5 mb-2">
+	@{	Composition compositions = Model.db.Compositions.Find(Convert.ToInt32(Model.SelectedId));
+		int[] fotosId = new int[compositions.NumberPhotos];
+		for (int i = 0; i < compositions.NumberPhotos; i++)
+		{
+			fotosId[i] = (int)(compositions.IdFirstPhoto) + i;
+		}
+	}
+	<h1 class="Centr">@compositions.GetDeShiffovkaName(Model.Key)</h1>
+
+	@foreach (int id in fotosId)
+	{
+	<div class="col-lg-12 mr-2 ml-2">
+		@using (Html.BeginForm("Galerea", "Home"))
+		{
+			<img class="img-thumbnail displayed" src="@Url.Action("GetedImage", "Home", new { id = id })" />
+			<input type="hidden" name="id" value="@id" />
+			<input type="submit" class="Butt Centr" style="color:#d4d3d3" value="open" />
+		}
+	</div>
+	}
+</div>
+

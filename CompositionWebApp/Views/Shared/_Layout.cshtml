@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - CompositionWebApp</title>
+
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+	<nav class="nav">
+		<nav class="navbar navbar-inverse">
+			<div class="container">
+				<div>
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="~/Home/Main" class="navbar-brand">Main</a>
+							<a href="~/Home/Password" class="navbar-brand">Password</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</nav>
+
+	<div style="margin-left: 1em">
+		@RenderBody()
+	</div>
+	<hr />
+	<div>
+		<footer class="footer">
+			<p>© 2019 - CompositionWebApp</p>
+		</footer>
+	</div>
+</body>
+</html>
