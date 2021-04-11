@@ -96,7 +96,7 @@ namespace CompositionWebApp.Controllers
         {
             MainModel mainObjectcs = new MainModel()
             {
-                Key = (key == null) ? HttpContext.Session.GetString(KeyPass) : key,
+                Key = key ?? HttpContext.Session.GetString(KeyPass),
                 SelectedId = (selectId == null || selectId < 0) ? HttpContext.Session.GetInt32(KeySelecdId) : selectId,
                 db = db
             };

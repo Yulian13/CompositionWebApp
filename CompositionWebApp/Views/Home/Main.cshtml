@@ -22,7 +22,7 @@
 		@{
 			bool one = true;
 		}
-		@foreach (var composition in Model.db.Compositions)
+		@foreach (var composition in Model.db.Compositions.ToList())
 		{
 			<tr>
 				@{  string Name = composition.GetDeShiffovkaName(Model.Key, 50);

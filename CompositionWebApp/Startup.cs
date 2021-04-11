@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace CompositionWebApp
 {
     public class Startup
     {
+        //Key: ConnectionStrings:DefaultConnection
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -22,8 +24,6 @@ namespace CompositionWebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CompositionContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -38,11 +38,13 @@ namespace CompositionWebApp
                 options.Cookie.IsEssential = true;
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            var connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<CompositionContext>(option => option.UseSqlServer(connection));
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -59,12 +61,13 @@ namespace CompositionWebApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseRouting();
 
-            app.UseMvc(routes =>
+            app.UseEndpoints(routes =>
             {
-                routes.MapRoute(
+                routes.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Password}/{id?}");
+                    pattern: "{controller=Home}/{action=Password}/{id?}");
             });
 
             app.Run(async context =>
