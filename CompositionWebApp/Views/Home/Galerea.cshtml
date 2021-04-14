@@ -47,19 +47,19 @@
 			<div class="row">
 				<form asp-action="Galerea" asp-controller="Home">
 					<input type="hidden" name="id" value="@composition.IdFirstPhoto" />
-					<input type="submit" class="ButtOpen Butt" style="width:130%" value="<<<" />
+					<input type="submit" class="ButtOpen Butt RowButton" value="<<<" />
 				</form>
 				@for (int i = Model.MinId; i < Model.MaxId; i++)
 				{
 					string color = (composition.IdFirstPhoto + i == Model.PhotoId) ? "#423333" : "gray";
 					<form asp-action="Galerea" asp-controller="Home">
 						<input type="hidden" name="id" value="@(i + composition.IdFirstPhoto)" />
-						<input type="submit" class="ButtOpen Butt" style="width:130%; background-color: @color" value="@(i+1)" />
+						<input type="submit" class="ButtOpen Butt RowButton" style="background-color: @color" value="@(i+1)" />
 					</form>
 				}
 				<form asp-action="Galerea" asp-controller="Home">
 					<input type="hidden" name="id" value="@(composition.IdFirstPhoto + composition.NumberPhotos - 1)" />
-					<input type="submit" class="ButtOpen Butt" style="width:130%" value=">>>" />
+					<input type="submit" class="ButtOpen Butt RowButton" value=">>>" />
 				</form>
 
 			</div>
