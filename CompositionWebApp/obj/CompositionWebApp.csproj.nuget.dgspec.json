@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fujitsu\\source\\repos\\CompositionWebApp\\CompositionWebApp\\CompositionWebApp.csproj": {}
+    "C:\\Users\\еаеае\\Source\\Repos\\Yulian13\\CompositionWebApp\\CompositionWebApp\\CompositionWebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fujitsu\\source\\repos\\CompositionWebApp\\CompositionWebApp\\CompositionWebApp.csproj": {
+    "C:\\Users\\еаеае\\Source\\Repos\\Yulian13\\CompositionWebApp\\CompositionWebApp\\CompositionWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fujitsu\\source\\repos\\CompositionWebApp\\CompositionWebApp\\CompositionWebApp.csproj",
+        "projectUniqueName": "C:\\Users\\еаеае\\Source\\Repos\\Yulian13\\CompositionWebApp\\CompositionWebApp\\CompositionWebApp.csproj",
         "projectName": "CompositionWebApp",
-        "projectPath": "C:\\Users\\Fujitsu\\source\\repos\\CompositionWebApp\\CompositionWebApp\\CompositionWebApp.csproj",
-        "packagesPath": "C:\\Users\\Fujitsu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fujitsu\\source\\repos\\CompositionWebApp\\CompositionWebApp\\obj\\",
+        "projectPath": "C:\\Users\\еаеае\\Source\\Repos\\Yulian13\\CompositionWebApp\\CompositionWebApp\\CompositionWebApp.csproj",
+        "packagesPath": "C:\\Users\\еаеае\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\еаеае\\Source\\Repos\\Yulian13\\CompositionWebApp\\CompositionWebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Fujitsu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\еаеае\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
