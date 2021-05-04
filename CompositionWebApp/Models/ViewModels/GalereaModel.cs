@@ -10,7 +10,7 @@ namespace CompositionWebApp.Models.ViewModels
         public GalereaModel(MainModel model)
         {
             Key = model.Key;
-            SelectedId = model.SelectedId;
+            SelectedId = model.SelectedComposition.Id;
             db = model.db;
         }
 

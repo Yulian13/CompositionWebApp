@@ -4,7 +4,7 @@
 }
 
 <div class="row mt-5 mb-2">
-	@{	Composition compositions = Model.db.Compositions.Find(Convert.ToInt32(Model.SelectedId));
+	@{	Composition compositions = Model.SelectedComposition;
 		int[] fotosId = new int[compositions.NumberPhotos];
 		for (int i = 0; i < compositions.NumberPhotos; i++)
 		{

@@ -10,6 +10,7 @@ namespace CompositionWebApp.Models.ViewModels
     {        
         public CompositionContext db { get; set; }
         public string Key { get; set; }
-        public int? SelectedId { get; set; }
+        public Composition SelectedComposition { get; set; }
+        public bool IsNullSelectedComposition { get; set; }
     }
 }

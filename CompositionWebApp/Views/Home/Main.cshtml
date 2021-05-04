@@ -1,58 +1,89 @@
-﻿@model MainModel
+﻿@model MainModel;
 @{
 	ViewData["Title"] = "Home Page";
 }
 <div>
 	<h1 class="Centr">Welcome</h1>
 
-	@if (Model.SelectedId != -1)
-	{
-	int? id = Model.db.Compositions.Find(Model.SelectedId).IdFirstPhoto;
-	<div class="row" style="margin-bottom: 3%">
-		<form asp-action="Composition" asp-controller="Home">
-			<input type="submit" class="ButtOpen Butt" value="Open full" />
-		</form>
-		<form asp-action="Galerea" asp-controller="Home">
-			<input type="hidden" class="ButtOpen Butt" value="@id" name="id" />
-			<input type="submit" class="ButtOpen Butt" style="margin-left: 30%; width: 100%" value="Open in galerei" />
-		</form>
+
+	<div class="container">
+		@if (!(Model.IsNullSelectedComposition || Model.SelectedComposition.Id == -1))
+		{
+			int? id = Model.SelectedComposition.IdFirstPhoto;
+			<div class="row" style="margin-bottom: 3%">
+				<form asp-action="Composition" asp-controller="Home">
+					<input type="submit" class="ButtOpen Butt" value="Open full" />
+				</form>
+				<form asp-action="Galerea" asp-controller="Home">
+					<input type="hidden" class="ButtOpen Butt" value="@id" name="id" />
+					<input type="submit" class="ButtOpen Butt" style="margin-left: 30%; width: 100%" value="Open in galerei" />
+				</form>
+			</div>
+		}
+		<div class="row">
+			<div class="col-md-6">
+				<div class="container">
+						<div class="row">
+							<table border="1">
+								@foreach (var composition in Model.db.Compositions.ToList())
+								{
+								<tr>
+									@{ string Name = composition.GetDeShiffovkaName(Model.Key, 50);
+										string color = (!Model.IsNullSelectedComposition && Model.SelectedComposition.Id == composition.Id) ? "#318e11" : "#ffffff";
+										string NumberPhoto = (Name != null) ? composition.NumberPhotos.ToString() : "";
+									}
+									<td style="background-color: @color">
+										<form asp-action="Main" asp-controller="Home">
+											@if (Name != null)
+											{
+												<input type="hidden" value="@composition.Id" name="id" />
+												<input type="submit" class="Butt" value="@Name" />
+											}
+											else
+											{
+												<p style="color: red">Error</p>
+											}
+										</form>
+									</td>
+									<td>
+										<p>@NumberPhoto</p>
+									</td>
+								</tr>
+								}
+							</table>
+						</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				@if (!Model.IsNullSelectedComposition)
+				{
+					string origName = Model.SelectedComposition.GetDeShiffovkaName(Model.Key);
+					<p>@origName</p>
+					<img src='@Url.Action("GetFirstImage", new { id = Model.SelectedComposition.Id})' class="image" />
+
+				}
+			</div>
+		</div>
 	</div>
-					}
-	<table>
+	@*<table>
 		@{
 			bool one = true;
 		}
 		@foreach (var composition in Model.db.Compositions.ToList())
 		{
 			<tr>
-				@{  string Name = composition.GetDeShiffovkaName(Model.Key, 50);
-					string color = (Model.SelectedId == composition.Id) ? "#318e11" : "#ffffff";
-					string NumberPhoto = (Name != null) ? composition.NumberPhotos.ToString() : "";
-				}
 				<td style="background-color: @color">
-					<form asp-action="Main" asp-controller="Home">
-						@if (Name != null)
-						{
-							<input type="hidden" value="@composition.Id" name="id" />
-							<input type="submit" class="Butt" value="@Name" />
-						}
-						else
-						{
-							<p style="color: red">Error</p>
-						}
-					</form>
 				</td>
 				<td>@NumberPhoto</td>
 				@if (one)
 				{
 					<td rowspan="@Model.db.Compositions.Count()">
-						<img src='@Url.Action("GetFirstImage", new { id = Model.SelectedId})' class="image" />
 					</td>
 					{ one = false; }
 				}
 			</tr>
 		}
 
-	</table>
+	</table>*@
 
 </div>

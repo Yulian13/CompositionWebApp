@@ -94,11 +94,13 @@ namespace CompositionWebApp.Controllers
 
         MainModel GetMainObjectcs(string key = null, int? selectId = null)
         {
+            selectId = (selectId == null || selectId < 0) ? HttpContext.Session.GetInt32(KeySelecdId) : selectId;
             MainModel mainObjectcs = new MainModel()
             {
                 Key = key ?? HttpContext.Session.GetString(KeyPass),
-                SelectedId = (selectId == null || selectId < 0) ? HttpContext.Session.GetInt32(KeySelecdId) : selectId,
-                db = db
+                SelectedComposition = (selectId == null) ? null : db.Compositions.Find(selectId),
+                db = db,
+                IsNullSelectedComposition = (selectId == null || selectId < 0)              
             };
             return mainObjectcs;
         }
